@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Quicksand&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .body {
+    background-image: url("./assets/bg.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100dvh;
+  }
+
+  li,
+  span {
+    @apply font-body;
+  }
+
+  ::-webkit-scrollbar {
+    width: 0;
+  }
+}
+
+@layer utilities {
+  .centerize {
+    @apply flex items-center justify-center;
+  }
+
+  .glassmorph {
+    backdrop-filter: blur(10px);
+    background-color: rgba(154, 154, 154, 25%);
+  }
+
+  .slide-up {
+    animation: slide-up 0.5s linear 0.5s forwards;
+  }
+
+  .slide-down {
+    animation: slide-down 0.5s linear forwards;
+  }
+
+  .show-scrollbar::-webkit-scrollbar {
+    width: 0.8rem;
+  }
+
+  .show-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #d9d9d9;
+    border-radius: 30px;
+  }
+
+  .loader {
+  width: 15px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  animation: l5 1s infinite linear alternate;
+}
+}
+
+@keyframes slide-fade-in {
+  0% {
+    transform: translateX(-100%);
+    scale: -0.2;
+    transform-origin: center;
+  }
+  75% {
+    transform: translateX(0);
+  }
+  100% {
+    scale: 1;
+  }
+}
+
+@keyframes slide-up {
+  to {
+    transform: translateY(80%);
+  }
+}
+
+@keyframes slide-down {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(200%);
+  }
+}
+
+
+@keyframes l5 {
+    0%  {box-shadow: 20px 0 #000, -20px 0 #0002;background: #000 }
+    33% {box-shadow: 20px 0 #000000, -20px 0 #0002;background: rgba(71, 71, 71, 0.133)}
+    66% {box-shadow: 20px 0 #0002,-20px 0 #000; background: rgba(202, 202, 202, 0.133)}
+    100%{box-shadow: 20px 0 #0002,-20px 0 #000; background: #000 }
+}
